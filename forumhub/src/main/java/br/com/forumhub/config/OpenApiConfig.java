@@ -16,7 +16,7 @@ public class OpenApiConfig {
                         .description("API REST para gerenciamento de tópicos de fórum")
                         .version("1.0")
                         .contact(new Contact()
-                                .name("Ronaldo Vilela")
+                                .name("seu-nome")
                                 .email("seuemail@email.com")
                         )
                 );
