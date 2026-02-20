@@ -1,49 +1,63 @@
-# 📚 ForumHub API
+# 🚀 Forum Hub API
 
 API REST desenvolvida com Spring Boot para gerenciamento de tópicos de
 fórum.
 
-## 🚀 Tecnologias Utilizadas
+Projeto criado como desafio prático da Alura, aplicando boas práticas de
+desenvolvimento backend e arquitetura REST.
 
--   Java 17+
+------------------------------------------------------------------------
+
+## 📌 Sobre o Projeto
+
+O Forum Hub é uma API que permite:
+
+-   Criar tópicos
+-   Listar tópicos
+-   Buscar por ID
+-   Atualizar informações
+-   Deletar tópicos
+-   Validar dados de entrada
+-   Impedir cadastro de tópicos duplicados
+
+A aplicação segue o padrão de arquitetura em camadas:
+
+Controller → Service → Repository → Model → DTO
+
+------------------------------------------------------------------------
+
+## 🛠️ Tecnologias Utilizadas
+
+-   Java 17
 -   Spring Boot
 -   Spring Data JPA
 -   Hibernate
--   Banco de dados relacional (H2 ou PostgreSQL)
 -   Jakarta Validation
 -   Swagger / OpenAPI
+-   Banco de dados relacional (H2 ou PostgreSQL)
+-   Maven
 
 ------------------------------------------------------------------------
 
-## 🚀 Funcionalidades
+## 🧠 Conceitos Aplicados
 
-✔ Criar tópico\
-✔ Listar todos os tópicos\
-✔ Buscar tópico por ID\
-✔ Atualizar tópico\
-✔ Deletar tópico\
-✔ Validação de dados\
-✔ Regra para evitar tópicos duplicados\
-✔ Status HTTP corretos com ResponseEntity
-
-------------------------------------------------------------------------
-
-## 🧱 Estrutura do Projeto
-
-br.com.forumhub\
-├── controller\
-├── service\
-├── repository\
-├── model\
-├── dto
+-   Arquitetura em camadas
+-   DTO para entrada e saída de dados
+-   Uso de ResponseEntity para controle de status HTTP
+-   Tratamento de exceções
+-   Validação com Bean Validation
+-   Princípios REST
+-   Transações com @Transactional
 
 ------------------------------------------------------------------------
 
-## 📌 Endpoints
+## 📡 Endpoints da API
 
 ### 🔹 Criar Tópico
 
-POST /topicos
+POST `/topicos`
+
+Status: `201 Created`
 
 ``` json
 {
@@ -54,28 +68,30 @@ POST /topicos
 }
 ```
 
-Retorno: 201 Created
-
 ------------------------------------------------------------------------
 
-### 🔹 Listar Tópicos
+### 🔹 Listar Todos
 
-GET /topicos\
-Retorno: 200 OK
+GET `/topicos`
+
+Status: `200 OK`
 
 ------------------------------------------------------------------------
 
 ### 🔹 Buscar por ID
 
-GET /topicos/{id}\
-Retorno: 200 OK\
-Se não existir: 404 Not Found
+GET `/topicos/{id}`
+
+Status: `200 OK`\
+Se não encontrado: `404 Not Found`
 
 ------------------------------------------------------------------------
 
 ### 🔹 Atualizar Tópico
 
-PUT /topicos/{id}
+PUT `/topicos/{id}`
+
+Status: `200 OK`
 
 ``` json
 {
@@ -85,37 +101,39 @@ PUT /topicos/{id}
 }
 ```
 
-Retorno: 200 OK
-
 ------------------------------------------------------------------------
 
 ### 🔹 Deletar Tópico
 
-DELETE /topicos/{id}\
-Retorno: 204 No Content
+DELETE `/topicos/{id}`
+
+Status: `204 No Content`
 
 ------------------------------------------------------------------------
 
-## ⚙️ Regras de Negócio
+## ⚙️ Como Executar o Projeto
 
--   Não é permitido cadastrar tópicos com mesmo título e mensagem.
--   O autor é definido apenas na criação e não pode ser alterado.
--   Todos os campos obrigatórios são validados.
+### 1️⃣ Clonar o repositório
+
+``` bash
+git clone https://github.com/Ronaldo-Vilela/forum-hub-alura.git
+```
+
+### 2️⃣ Entrar na pasta
+
+``` bash
+cd forum-hub-alura
+```
+
+### 3️⃣ Executar a aplicação
+
+``` bash
+mvn spring-boot:run
+```
 
 ------------------------------------------------------------------------
 
-## 🛠 Como Executar
-
-1.  Clone o repositório git clone
-    https://github.com/seu-usuario/forumhub.git
-
-2.  Acesse a pasta do projeto cd forumhub
-
-3.  Execute a aplicação mvn spring-boot:run
-
-------------------------------------------------------------------------
-
-## 📖 Documentação Swagger
+## 📖 Documentação da API
 
 Após iniciar a aplicação, acesse:
 
@@ -123,12 +141,34 @@ http://localhost:8080/swagger-ui.html
 
 ------------------------------------------------------------------------
 
+## 🧪 Validações Implementadas
+
+-   Campos obrigatórios com @NotBlank
+-   Bloqueio de tópicos duplicados (mesmo título e mensagem)
+-   Tratamento de exceção para recurso não encontrado
+
+------------------------------------------------------------------------
+
+## 📂 Estrutura do Projeto
+
+br.com.forumhub\
+├── controller\
+├── service\
+├── repository\
+├── model\
+├── dto
+
+------------------------------------------------------------------------
+
 ## 👨‍💻 Autor
 
-Desenvolvido por Ronaldo Vilela
+Ronaldo Vilela\
+Desenvolvedor Backend em evolução 🚀
+
+GitHub: https://github.com/Ronaldo-Vilela
 
 ------------------------------------------------------------------------
 
 ## 📄 Licença
 
-Projeto para fins educacionais.
+Projeto desenvolvido para fins educacionais.
